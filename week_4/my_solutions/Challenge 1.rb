@@ -89,6 +89,8 @@ groupSlice(["Keenan Turner", "Tyler Keating", "Catherine Farkas", "Kim Girard", 
 # I spent a lot of time staring at it, and eventually thought to use a while loop. It still uses an array, and I feel like a hash would be more suited for this. Unfortunately, I can't figure
 # out how to properly push all the details into the hash. 
 
+# Unfortunately, I have to spend a lot more time with driver code. I did not write any here, and it has been very frustrating to try and have driver code that passes.
+
 # I was frustrated initially because I had no clue how to do this challenge - it was super open ended and I just sat there, weeping. In my chair. Just sitting there, weeping. 
 # Eventually, I figured out how to reproduce my literals through an algorithm and I'm very happy with it. 
 
