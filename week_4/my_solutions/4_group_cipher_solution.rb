@@ -117,4 +117,4 @@ all very confusing initially. But I think I understand it now.
 I am not entirely confident in the objectives, and I need to spend more time with this challenge. Regrettably, I did not have a whole lot of time this week to work - I wish I did. And it worries me that I didn't,
 and I worry that I might be falling behind. Thankfully, this coming week should provide me with plenty of time to fully immerse myself.
 
-
+=end
