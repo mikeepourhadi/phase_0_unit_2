@@ -1,46 +1,72 @@
 # U2.W5: The Bakery Challenge (GPS 2.1)
 
 # Your Names
-# 1)
-# 2)
+# 1) Jonathan Howden
+# 2) Mikee Pourhadi
+
+# input: number of people (integer) 
+# favorite bakery dessert (string)
+
+
+
+# output:
+
+
+
+
 
  # This is the file you should end up editing. 
  
 def bakery_num(num_of_people, fav_food)
-  my_list = {"pie" => 8, "cake" => 6, "cookie" => 1}
-  pie_qty = 0
-  cake_qty = 0
-  cookie_qty = 0
-  
-  has_fave = false
+  my_list = {"pie" => 8, "cake" => 6, "cookie" => 1} # how many people each item can feed
+  pie_qty = 0 
+  cake_qty = 0 
+  cookie_qty = 0 
+   
+  has_fave = false 
 
   my_list.each_key do |k|
-  if k == fav_food
-  has_fave = true
-  fav_food = k
+    if k == fav_food
+      has_fave = true
+    end
   end
-  end
-  if has_fave == false
-  raise ArgumentError.new("You can't make that food")
+  
+  if has_fave == false 
+    raise ArgumentError.new("You can't make that food")
   else
-  fav_food_qty = my_list.values_at(fav_food)[0]
-  if num_of_people % fav_food_qty == 0
-    num_of_food = num_of_people / fav_food_qty
-    return "You need to make #{num_of_food} #{fav_food}(s)."
-  else num_of_people % fav_food_qty != 0
-    while num_of_people > 0
-    if num_of_people / my_list["pie"] > 0
-    pie_qty = num_of_people / my_list["pie"]
-    num_of_people = num_of_people % my_list["pie"]
-    elsif num_of_people / my_list["cake"] > 0
-    cake_qty = num_of_people / my_list["cake"]
-    num_of_people = num_of_people % my_list["cake"]
-    else
-    cookie_qty = num_of_people
-    num_of_people = 0
+    fav_food_qty = my_list[fav_food]# without [0], returns array 
+    if num_of_people % fav_food_qty == 0 # if no remainder
+      num_of_food = num_of_people / fav_food_qty 
+      return "You need to make #{num_of_food} #{fav_food}(s)."
+    else 
+      
+     # iterate through my_list hash
+     # store values for num_of_people / my_list[key] in variables
+     # update num_of_people with remainder 
+     # string interpolation
+     array = []
+     my_list.each do |baked_good, people|
+      if num_of_people / my_list[baked_good] > 0
+        array << num_of_people / my_list[baked_good]
+        num_of_people = num_of_people % my_list[baked_good]
+      end
+      print array
     end
-    end
-    return "You need to make #{pie_qty} pie(s), #{cake_qty} cake(s), and #{cookie_qty} cookie(s)."
+=begin
+      while num_of_people > 0 # if num_of_people is 7 
+        if num_of_people / my_list["pie"] > 0 # 7 / 8 = 0, so skip this step
+          pie_qty = num_of_people / my_list["pie"]
+          num_of_people = num_of_people % my_list["pie"]
+        elsif num_of_people / my_list["cake"] > 0 # 7 / 6 > 0, execute block
+          cake_qty = num_of_people / my_list["cake"] # 7 / 6 = 1.16 (without using a float, ruby uses whole numbers so ignore dec), set cake_qty to 1
+          num_of_people = num_of_people % my_list["cake"] # set num_of_people to 1, since % > 0
+        else
+          cookie_qty = num_of_people 
+          num_of_people = 0
+        end
+      end
+=end
+        return "You need to make #{pie_qty} pie(s), #{cake_qty} cake(s), and #{cookie_qty} cookie(s)."
     end
   end
 end
@@ -54,8 +80,9 @@ p bakery_num(24, "cake") == "You need to make 4 cake(s)."
 p bakery_num(41, "pie") == "You need to make 5 pie(s), 0 cake(s), and 1 cookie(s)."
 p bakery_num(24, "cookie") == "You need to make 24 cookie(s)."
 p bakery_num(4, "pie") == "You need to make 0 pie(s), 0 cake(s), and 4 cookie(s)."
-p bakery_num(130, "pie") == "You need to make 16 pie(s), 0 cake(s), and 2 cookie(s)."
-# p bakery_num(3, "apples") # this will raise an ArgumentError
+p bakery_num(130, "pie") == "You need to make 16 pie(s), 0 cake(s), and 2 cookie(s)." 
+
+p bakery_num(3, "apples") # this will raise an ArgumentError
 
 # You SHOULD change this driver code. Why? Because it doesn't make sense.
 p bakery_num(41, "cake") == "You need to make 5 pie(s), 0 cake(s), and 1 cookie(s)." # WHAAAAAT? I thought I said I wanted cake!
