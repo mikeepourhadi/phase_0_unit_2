@@ -90,10 +90,10 @@ class GuessingGame
 
   def solved?
     case @guess 
-    when == :correct then true
-    else 
-      false
-    end
+      when == :correct then true
+      else 
+        false
+      end
   end
 
 end

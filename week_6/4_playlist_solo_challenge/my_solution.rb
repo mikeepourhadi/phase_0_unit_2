@@ -5,7 +5,26 @@
 
 
 # Pseudocode
+class Song
+	attr_reader :song_name, :artist
 
+	def initialize(song_name, band)
+		@song_name = song_name
+		@band = band
+	end
+end
+
+
+
+
+
+class Playlist
+
+	def initialize(*songs)
+		@playlist = songs
+	end
+
+	def 
 
 
 # Initial Solution

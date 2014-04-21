@@ -60,11 +60,9 @@ class CreditCard
 		@number
 	end
 
-
 	def summation
 		@number = @number.inject(:+)
 	end
-
 
 	def check_card
 		@number % 10 == 0? true : false

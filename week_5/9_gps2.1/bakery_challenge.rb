@@ -7,14 +7,6 @@
 # input: number of people (integer) 
 # favorite bakery dessert (string)
 
-
-
-# output:
-
-
-
-
-
  # This is the file you should end up editing. 
  
 def bakery_num(num_of_people, fav_food)
